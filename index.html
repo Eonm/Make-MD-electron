@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/section.css">
+    <link rel="stylesheet" href="./css/spinner.css">
+    <link rel="stylesheet" type="text/css" href="./css/photon/css/photon.css">
+    <link rel="import" href="./sections/bibliography-config.html">
+        <link rel="import" href="./sections/doc.html">
+    <link rel="import" href="./sections/open-or-create.html">
+    <link rel="import" href="./sections/create-document.html">
+    <link rel="import" href="./sections/input-output.html">
+    <link rel="import" href="./sections/zotero-api-config.html">
+    <link rel="import" href="./sections/ci-config.html">
+    <link rel="import" href="./sections/pandoc-config.html">
+    <link rel="import" href="./sections/maintenance.html">
+    <meta charset="UTF-8">
+    <title>MakeMD</title>
+  </head>
+  <body>
+     <div class="window">
+       <header class="toolbar toolbar-header">
+         <div class="toolbar-actions">
+           <div class="btn-group">
+             <button id="setPathButton" class="btn btn-default">
+               <span class="icon icon-folder"></span>
+              </button>
+              <button id="github-link" class="btn btn-default">
+                <span class="icon icon-github"></span>
+               </button>
+               <button id="env-file" class="btn btn-default">
+               <span class="icon icon-code"></span>
+              </button>
+          </div>
+         <div id="configEditIcons" style="" class="btn-group pull-right">
+           <button id="pdfconfig" class="btn btn-default">
+             <span class="icon icon-newspaper"></span>
+           </button>
+            <button id="gitbookconfig" class="btn btn-default">
+              <span class="icon icon-book"></span>
+            </button>
+            <button id="presentationconfig" class="btn btn-default">
+              <span class="icon icon-video"></span>
+            </button>
+          </div>
+        </div>
+       </header>
+
+       <div class="window-content">
+         <nav class="nav-group nav js-nav">
+           <h5 class="nav-group-title">Project Management</h5>
+           <span class="nav-button nav-group-item" id="menu-open-or-create" data-section="oc">
+             <span id="button-windows" class="icon icon-folder" data-section="oc"></span>
+              Open / Create a project
+             <span class="shortcut">o</span>
+           </span>
+           <h5 class="nav-group-title">Builds</h5>
+           <span class="nav-button nav-group-item configure disabled" id="menu-create" data-section="make">
+             <span id="button-windows" class="icon icon-plus-circled" data-section="make"></span>
+             Build documents
+             <span class="shortcut">c</span>
+           </span>
+            <h5 class="nav-group-title">Configuration</h5>
+            <a class="nav-button nav-group-item configure disabled" id="menu-io" data-section="io">
+              <span class="icon icon-archive" data-section="io"></span>
+              I/O
+              <span class="shortcut">i</span>
+            </a>
+            <a class="nav-button nav-group-item configure disabled" id="menu-pandoc" data-section="pandoc">
+              <span class="icon icon-tools" data-section="pandoc"></span>
+              Pandoc Config
+              <span class="shortcut">p</span>
+            </a>
+            <a class="nav-button nav-group-item configure disabled" id="menu-bib" data-section="bibliography">
+              <span class="icon icon-book-open configure disabled" data-section="bibliography"></span>
+              Bibliography
+              <span class="shortcut">b</span>
+            </a>
+            <a class="nav-button nav-group-item configure disabled" id="menu-zotero" data-section="zotero">
+              <span class="icon icon-key" data-section="zotero"></span>
+              Zotero API
+              <span class="shortcut">z</span>
+            </a>
+            <a class="nav-button nav-group-item configure disabled" id="menu-ci" data-section="ci">
+              <span class="icon icon-rss" data-section="ci"></span>
+              CI
+              <span class="shortcut">t</span><span class="shortcut">g</span>
+            </a>
+            <span class="nav-button nav-group-item configure disabled" id="menu-maintenance" data-section="maintenance">
+              <span class="icon icon-cog configure" data-section="maintenance"></span>
+              Maintenance
+              <span class="shortcut">m</span>
+            </span>
+           <h5 class="nav-group-title">Documentation</h5>
+           <span class="nav-button nav-group-item" id="menu-maintenance" data-section="doc">
+             <span class="icon icon-book" data-section="doc"></span>
+             MakeMD Doc
+             <span class="shortcut">m</span>
+           </span>
+        </nav>
+        <div class="pane">
+          <main class="content js-content"></main>
+       </div>
+      </div>
+      <footer class="toolbar toolbar-footer">
+          <span id="path"></span>
+          <div class="pull-right">
+            <div id="spinner" class="lds-spinner" style="margin-right: 2.5em; display:none"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <span id="travis-build-status" style="padding-right:0.5em;color:#5f5f5f;">Travis build status <span id="travis-circle" class="icon icon-record" style="color:#5f5f5f"></span>
+          </div>
+      </footer>
+     </div>
+
+    <script src='./scripts/open-helper.js'></script>
+    <script src="./scripts/csl-style-search.js"></script>
+
+    </script>
+    <script>
+      require('./scripts/open-config-file.js')
+      require('./scripts/display-config-option.js')
+      require('./scripts/set-path.js')
+      require('./scripts/imports.js')
+      require('./scripts/nav.js')
+      require('./scripts/display-env-var.js')
+      require('./scripts/display-allowed-build.js')
+      require('./scripts/allow-configuration.js')
+      require('./scripts/update-env-file.js')
+    </script>
+  </body>
+</html>

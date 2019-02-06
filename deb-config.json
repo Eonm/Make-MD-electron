@@ -1,0 +1,23 @@
+ {
+  "dest": "dist/installers/",
+  "icon": "assets/icons/png/64x64.png",
+  "maintainer": eonm <eon.mathis@gmail.com>,
+  "categories": [
+    "Utility",
+    "Science"
+  ],
+    "depends": [
+    "make",
+    "git",
+    "curl",
+    "pandoc",
+    "pandoc-citeproc",
+    "texlive-latex-base",
+    "texlive-latex-extra",
+    "texlive-lang-european",
+    "texlive-fonts-recommended"
+],
+  "lintianOverrides": [
+    "changelog-file-missing-in-native-package"
+  ]
+}

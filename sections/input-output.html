@@ -1,0 +1,54 @@
+<template class="task-template">
+   <section id="io-section" class="section js-section u-category-media">
+      <div class="section-wrapper">
+        <form onsubmit="return false">
+            <h3>PDF</h3>
+            <div class="form-group">
+              <label>PDF input folder</label>
+              <input id="MD_SRC" type="bib-location" class="env io form-control" required pattern="(\.)?/.*/" placeholder="" required>
+              <span onclick="openDir(event, this)" class="inside-button icon icon-folder"></span>
+              </div>
+              <div class="form-group">
+                <label>PDF output folder</label>
+                <input id="PDF_DIR" type="bib-location" class="env io form-control" required pattern="(\.)?/.*/" placeholder="" required>
+                <span onclick="openDir(event, this)" class="inside-button icon icon-folder"></span>
+              </div>
+
+              <h3>Presentation</h3>
+              <div class="form-group">
+                <label>Presentation input folder</label>
+                <input id="PRESENTATION_SRC" type="bib-location" class="env io form-control" required pattern="(\.)?/.*/" placeholder="" required>
+                <span onclick="openDir(event, this)" class="inside-button icon icon-folder"></span>
+              </div>
+
+              <div class="form-group">
+                <label>Presentation output folder</label>
+                <input id="PRESENTATION_DIR" type="bib-location" class="env io form-control" required pattern="(\.)?/.*/" placeholder="" required>
+                <span onclick="openDir(event, this)" class="inside-button icon icon-folder"></span>
+              </div>
+
+              <h3>Gitbook</h3>
+              <div class="form-group">
+                <label>Gitbook input folder</label>
+                <input id="GIT_BOOK_SRC" type="bib-location" class="env io form-control" required pattern="(\.)?/.*/" placeholder="" required>
+                <span onclick="openDir(event, this)" class="inside-button icon icon-folder"></span>
+              </div>
+
+              <div class="form-group">
+                <label>Gitbook output folder</label>
+                <input id="GIT_BOOK_DIR" type="bib-location" class="env io form-control" required pattern="(\.)?/.*/" placeholder="" required>
+                <span onclick="openDir(event, this)" class="inside-button icon icon-folder"></span>
+              </div>
+
+            <div class="form-actions">
+              <button id="reset-env-io" type="submit" class="btn btn-form btn-default">Reset</button>
+              <button id="update-env-io" type="submit" class="btn btn-form btn-primary update-env">OK</button>
+          </div>
+        </form>
+      </div>
+
+      <script type="text/javascript">
+        // require("./scripts/io-validation.js")
+      </script>
+    </section>
+</template>

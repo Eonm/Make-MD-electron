@@ -1,0 +1,37 @@
+<template class="task-template">
+   <section id="pandoc-section" class="section js-section u-category-media">
+      <div class="section-wrapper">
+        <form onsubmit="return false">
+          <h3>PDF</h3>
+            <div class="form-group">
+              <label>PDF config file (.yaml)</label>
+              <input id="PDF_CONFIG" type="text" class="env pandoc form-control" required pattern="(\.)?/.*\.y(a){0,1}ml" placeholder="" required>
+              <span onclick="openFileYml(event, this)" class="inside-button icon icon-folder"></span>
+            </div>
+
+            <h3>Presentation</h3>
+            <div class="form-group">
+              <label>Presentation config file (.yaml)</label>
+              <input type="text" id="PRESENTATION_CONFIG" class="env pandoc form-control" required pattern="(\.)?/.*\.y(a){0,1}ml" placeholder="" required />
+              <span onclick="openFileYml(event, this)" class="inside-button icon icon-folder"></span>
+            </div>
+
+            <h3>Gitbook</h3>
+            <div class="form-group">
+              <label>Gitbook config file (.yaml)</label>
+              <input id="GIT_BOOK_CONFIG" type="text" class="env pandoc form-control" required pattern="(\.)?/.*\.y(a){0,1}ml" placeholder="" name="GIT_BOOK_CONFIG" required type="submit">
+              <span onclick="openFileYml(event, this)" class="inside-button icon icon-folder"></span>
+            </div>
+
+            <div class="form-actions">
+              <button id="reset-env-pandoc" type="submit" class="btn btn-form btn-default">Reset</button>
+              <button id="update-env-pandoc" type="submit" class="btn btn-form btn-primary update-env">OK</button>
+            </div>
+        </form>
+      </div>
+
+      <script type="text/javascript">
+        // require("./scripts/pandoc-validation.js")
+      </script>
+    </section>
+</template>

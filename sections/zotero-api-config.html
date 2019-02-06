@@ -1,0 +1,78 @@
+<template class="task-template">
+   <section id="zotero-section" class="section js-section u-category-media">
+     <div class="container">
+<!-- Tabs -->
+      <div id="nav-tab" class="tab-group nav">
+        <div onclick="showZTab(event, 'z_user_tab')" class="tab-item z-tab">
+          Zotero User
+        </div>
+        <div onclick="showZTab(event, 'z_group_tab')" class="tab-item z-tab active">
+          Zotero Group
+        </div>
+      </div>
+  <!-- Tab panes -->
+        <div class="section-wrapper">
+          <div class="tab-content">
+            <div class="tab-pane z-tab-content" id="z_user_tab">
+              <form onsubmit="return false">
+              <div class="form-group">
+                <label>Zotero API key</label>
+                <input id="Z_API_KEY" type="password" class="env zotero-user form-control" placeholder="" required >
+                <span onclick="getZoteroApiKey()" class="inside-button icon icon-key"></span>
+              </div>
+              <div class="form-group">
+                <label>Zotero user ID</label>
+                <input id="Z_USER_ID" type="bib-location" class="env zotero-user form-control" required pattern="[0-9]+" placeholder="" required >
+              </div>
+              <div class="form-group">
+                <label>Zotero collection ID</label>
+                <input id="Z_COLLECTION" type="bib-location" required pattern="[A-Z]+" class="env zotero-user form-control" placeholder="" required >
+              </div>
+                <div class="form-actions">
+                  <button id="reset-env-z-user" type="submit" class="btn btn-form btn-default">Reset</button>
+                  <button id="update-env-z-user" type="submit" class="btn btn-form btn-primary update-env">OK</button>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane z-tab-content active" id="z_group_tab">
+              <form>
+                <div class="form-group">
+                  <label>Zotero Group ID</label>
+                  <input id="Z_GROUP_ID" type="" required pattern="[0-9]+" class="env zotero-group form-control" placeholder="" required />
+                  <span onclick="searchZotero(event, this)" class="inside-button icon icon-search"></span>
+                </div>
+                <div class="form-group">
+                  <label>Zotero Collection ID</label>
+                  <input id="Z_GROUP_COLLECTION" type="bib-location" class="env zotero-group form-control" placeholder=""/>
+                  <span onclick="searchZotero(event, this)" class="inside-button icon icon-search"></span>
+                </div>
+                <div class="form-actions">
+                  <button id="reset-env-z-group" type="submit" class="btn btn-form btn-default">Reset</button>
+                  <button type="submit" id="update-env-z-group" class="btn btn-form btn-primary update-env">OK</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+      <script src="./scripts/zotero.js" charset="utf-8"></script>
+      <script type="text/javascript">
+      function showZTab(event, tabName) {
+           var i, tabcontent, tablinks;
+           tabcontent = document.getElementsByClassName("z-tab-content");
+           for (i=0; i < tabcontent.length; i++) {
+               tabcontent[i].style.display = "none";
+           }
+
+           tablinks = document.getElementsByClassName("z-tab");
+           for ( i=0; i < tablinks.length; i++) {
+               tablinks[i].className = tablinks[i].className.replace("active", "");
+           }
+           document.getElementById(tabName).style.display = "block";
+           event.currentTarget.className += " active";
+       }
+
+      </script>
+    </section>
+</template>

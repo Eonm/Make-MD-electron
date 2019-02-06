@@ -1,0 +1,45 @@
+<template class="task-template">
+   <section id="make-section" class="section js-section u-category-media">
+
+     <!-- Create a document  -->
+      <div id="create-doc" class="section-wrapper" style="display:none">
+        <form>
+          <div class="form-group">
+            <label>Create document</label>
+            <select id="make_option" class="form-control">
+              <option value="">Please choose a build</option>
+              <option disabled="true" id="make_option_pdf" value="pdf">Create PDF</option>
+              <option disabled="true" id="make_option_presentation" value="presentation">Create Presentation</option>
+              <option disabled="true" id="make_option_gitbook" value="gitbook">Create Gitbook</option>
+            </select>
+            <div class="checkbox" value="individualy">
+              <label>
+                <input type="checkbox" id="individualy"> Create file individualy
+              </label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-form btn-default">Cancel</button>
+            <button disabled="true" id="make-trigger" class="btn btn-form btn-primary">OK</button>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- Open or Create a project  -->
+      <!-- <div id="configure-first">
+        <form style="margin-top: 25%">
+          <div class="form-group">
+            <button id="open-project" class="btn btn-default">Open a project</button>
+            <button id="create-project" class="btn btn-primary">Create a new project</button>
+          </div>
+        </form>
+      </div> -->
+
+      <script type="text/javascript">
+        require('./scripts/make.js')
+        // require('./scripts/create-project.js')
+        // require('./scripts/set-path.js')
+      </script>
+    </section>
+</template>

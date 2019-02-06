@@ -1,0 +1,67 @@
+<template class="task-template">
+   <section id="ci-section" class="section js-section u-category-media">
+     <!-- Tabs -->
+       <div id="nav-tab-CI" class="tab-group nav">
+         <div onclick="showCiTab(event, 'travis_tab')" class="tab-item ci-tab active">
+           Travis
+         </div>
+         <div onclick="showCiTab(event, 'gitlab_tab')" class="tab-item ci-tab">
+           Gitlab
+         </div>
+       </div>
+      <div class="section-wrapper">
+        <div class="tab-content">
+          <div class="tab-pane ci-tab-content active" id="travis_tab">
+            <form onsubmit="return false">
+              <div class="form-group">
+                <label>Github Repository name</label>
+                <input id="GITHUB_REPO_NAME" type="" class="env travis form-control" placeholder="Repo Name">
+              </div>
+              <div class="form-group">
+                <label>Github user name</label>
+                <input id="GITHUB_USER_NAME" type="" class="env travis form-control" placeholder="User name">
+              </div>
+              <div class="form-group">
+                <label>Github API Key</label>
+                <input id="GITHUB_API_KEY" type="password" class="env travis form-control" placeholder="Key">
+                <span onclick="getGithubApiKey()" class="inside-button icon icon-key"></span>
+              </div>
+              <div class="form-group">
+              <label>Travis Job</label>
+                <select id="travis-job" class="form-control">
+                  <option value="pdf">Create PDF</option>
+                  <option value="presentation">Create Presentation</option>
+                  <option value="gitbook">Create Gitbook</option>
+                  <option value="build-all">Create all files above</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button id="reset-env-travis" type="submit" class="btn btn-form btn-default">Reset</button>
+                <button id="generate-travis-conf" type="submit" class="btn btn-form btn-primary update-env">Create Travis Config</button>
+              </div>
+              </form>
+          </div>
+          <div class="tab-pane ci-tab-content" id="gitlab_tab">
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+      function showCiTab(event, tabName) {
+           var i, tabcontent, tablinks;
+           tabcontent = document.getElementsByClassName("ci-tab-content");
+           for (i=0; i < tabcontent.length; i++) {
+               tabcontent[i].style.display = "none";
+           }
+
+           tablinks = document.getElementsByClassName("ci-tab");
+           for ( i=0; i < tablinks.length; i++) {
+               tablinks[i].className = tablinks[i].className.replace("active", "");
+           }
+           document.getElementById(tabName).style.display = "block";
+           event.currentTarget.className += " active";
+       }
+      // require("./scripts/travis-generator.js");
+      </script>
+    </section>
+</template>

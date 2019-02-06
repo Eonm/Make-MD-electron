@@ -1,0 +1,54 @@
+<template class="task-template">
+   <section id="bibliography-section" class="section js-section u-category-media">
+      <div class="section-wrapper">
+        <form id="bib-form" onsubmit="return false">
+          <div class="form-group">
+          <label>Bibliography origin</label>
+            <select id="bib-origin" class="form-control">
+              <option value="from-zotero">From Zotero</option>
+              <option value="from-local-bib">From Local File</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input id="BIBLIOGRAPHY_SRC" type="bib-location" class="env bib bib-src form-control" placeholder="/home/johnDoe/bib/mybib.bib">
+            <span onclick="openFileBib(event, this)" class="inside-button bib-src icon icon-folder"></span>
+          </div>
+          <div class="form-group">
+            <label>Bibliography location</label>
+            <input type="bib-location" id="BIBLIOGRAPHY" pattern="(\.)?/.*\.(bib|json)" class="env bib form-control" placeholder="./bib/bib.bib" required />
+            <span onclick="openFileBib(event, this)" class="inside-button icon icon-folder"></span>
+          </div>
+          <div class="form-group">
+            <label>Citation style</label>
+            <form onsubmit="return false;">
+              <input id="CSL_STYLE" autofocus type="text" placeholder="Citation style ..." class="env bib form-control">
+            </form>
+          </div>
+          <div class="form-group">
+            <label>CSL file location</label>
+            <input id="CSL_FILE" type="bib-location" class="env bib form-control" pattern="(\.)?/.*\.csl" placeholder="./bib/style.csl" required />
+            <span onclick="openFileCsl(event, this)" class="inside-button icon icon-folder"></span>
+          </div>
+          <div class="form-actions">
+            <button id="reset-env-bib" type="submit" class="btn btn-form btn-default">Reset</button>
+            <button id="update-env-bib" type="submit" class="btn btn-form btn-primary update-env">OK</button>
+          </div>
+        </form>
+      </div>
+        <script type="text/javascript">
+          const cslSearcg = new autoComplete({
+          selector: '#CSL_STYLE',
+          minChars: 1,
+          source: function(term, suggest){
+              term = term.toLowerCase();
+              var choices = styleChoices;
+              var suggestions = [];
+              for (i=0;i<choices.length;i++)
+                  if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+              suggest(suggestions);
+            }
+          });
+          require('./scripts/bibliography.js')
+      </script>
+    </section>
+</template>
