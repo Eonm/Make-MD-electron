@@ -5,10 +5,14 @@ ipcRenderer.on('working-dir', (event, path) => {
     shell.openExternal('file://' + path + filename);
   }
 
-  let envFileButton = document.getElementById('env-file');
-  envFileButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    openProjectFile('/.env');
+  ipcRenderer.once('env-data', (e, envData) => {
+    let envFileButton = document.getElementById('env-file');
+    if (envData) {
+      envFileButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        openProjectFile('/.env');
+      })
+    }
   })
 
   let pdfConfigButton = document.getElementById('pdfconfig')
