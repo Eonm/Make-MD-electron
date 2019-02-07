@@ -1,10 +1,20 @@
 # Make-MD-electron
 
-This porject is in alpha.
+This project is in alpha.
 
 Some features won't work such as:
 - travis config file generation
 - gitbook build
+
+## Dependecies
+
+```sh
+  make
+  curl
+  pandoc
+  pandoc-citeproc
+  pdflatex
+```
 
 ## Start
 
