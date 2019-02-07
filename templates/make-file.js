@@ -131,7 +131,8 @@ md-pretify:
 
 gitbook: update-bib update-csl
 	gitbook install
-	./.script/create-git-book.sh
+	chmod +x $(dir $(realpath $(firstword $(MAKEFILE_LIST))))create-gitbook.sh
+	$(dir $(realpath $(firstword $(MAKEFILE_LIST))))create-gitbook.sh
 	gitbook build
 
 serve-doc:
