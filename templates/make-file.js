@@ -79,16 +79,17 @@ endif
 endif
 
 update-csl: mkdir-bib
-ifeq (,$(wildcard $(CSL_FILE)))
+ifneq ($(CSL_FILE),)
 	echo "updating csl file"
 	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
 	@mv /tmp/style.csl $(CSL_FILE)
 endif
 
 update-csl-force: mkdir-bib
-	echo $(CSL_STYLE)
+ifneq ($(CSL_FILE),)	echo $(CSL_STYLE)
 	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
 	@mv /tmp/style.csl $(CSL_FILE)
+endif
 
 pdf: mkdir-pdf update-bib update-csl
 	sed -e "s/^#title:/title:/" -i $(PDF_CONFIG);
