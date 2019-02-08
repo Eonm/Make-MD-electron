@@ -1,7 +1,4 @@
-const rcFileTemplate = `BIBLIOGRAPHY=./bib/bib.bib
-CSL_STYLE=apa-5th-edition
-CSL_FILE=./bib/style.csl
-MD_SRC=./md/
+const rcFileTemplate = `MD_SRC=./md/
 PDF_DIR=./pdf/
 PRESENTATION_SRC=./md/
 PRESENTATION_DIR=./presentation/
