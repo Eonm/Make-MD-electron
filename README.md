@@ -39,7 +39,7 @@ On debian based system
 
 ```sh
   # build the .deb package
-  sudo apt-get install dpkg-deb
+  sudo apt-get install fakeroot
   npm run build
   npm run deb64
 
