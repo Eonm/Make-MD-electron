@@ -1,7 +1,7 @@
  {
   "dest": "dist/installers/",
   "icon": "assets/icons/png/64x64.png",
-  "maintainer": eonm <eon.mathis@gmail.com>,
+  "maintainer": "eonm <eon.mathis@gmail.com>",
   "categories": [
     "Utility",
     "Science"

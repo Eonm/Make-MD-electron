@@ -1,12 +1,12 @@
 {
   "name": "MakeMD",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "  Build academic materials with Make Markdown and CI",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-packager . MakeMD --platform linux --arch x64 --out dist/",
-    "deb64": "electron-installer-debian --src dist/MakeMD-linux-x64/ --dest dist/installers/ --arch amd64"
+    "deb64": "electron-installer-debian --src dist/MakeMD-linux-x64/ --dest dist/installers/ --arch amd64 --config deb-config.json"
   },
   "icon": "./assets/icons/png/64x64.png",
   "repository": "https://github.com/electron/electron-quick-start",
@@ -14,7 +14,7 @@
     "MakeMD",
     "make",
     "pandoc",
-    "cite-proc",
+    "pandoc-citeproc",
     "zotero"
   ],
   "author": "eonm",
