@@ -9,6 +9,10 @@ const { installPandocConfig } = require('./install-pandoc-config.js');
 const { installGitbookScript } = require('./install-gitbook.js');
 
 async function init () {
+  await installRcFile()
+  await installMakeFile()
+  await installPandocConfig()
+  await installGitbookScript()
   await checkAppDependencies().then((dependeciesStatus) => {
     dependeciesStatus.forEach((dependencie) => {
       console.log(dependencie)
@@ -17,10 +21,6 @@ async function init () {
       }
     })
   })
-  await installRcFile()
-  await installMakeFile()
-  await installPandocConfig()
-  await installGitbookScript()
 }
 
 init() // auto exectute init process when app is loaded
