@@ -86,7 +86,8 @@ ifneq ($(CSL_FILE),)
 endif
 
 update-csl-force: mkdir-bib
-ifneq ($(CSL_FILE),)	echo $(CSL_STYLE)
+ifneq ($(CSL_FILE),)
+	echo $(CSL_STYLE)
 	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
 	@mv /tmp/style.csl $(CSL_FILE)
 endif
