@@ -1,5 +1,7 @@
 # Make-MD-electron
 
+![alt text](./MakeMD.png "Logo Title Text 1")
+
 This project is in alpha.
 
 Some features, such as travis config file generation, won't work.
