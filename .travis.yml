@@ -6,6 +6,7 @@ before_script:
   - npm install
   - npm install -g electron
 script:
+  - npm run test
   - npm run build
   - npm run deb64
 deploy:
