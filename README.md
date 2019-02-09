@@ -1,6 +1,6 @@
 # Make-MD-electron
 
-[![Build Status](https://travis-ci.org/Eonm/Make-MD-electron.svg?branch=master)](https://travis-ci.org/Eonm/Make-MD-electron)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Build Status](https://travis-ci.org/Eonm/Make-MD-electron.svg?branch=master)](https://travis-ci.org/Eonm/Make-MD-electron)
 
 ![Image](./MakeMD.png)
 
