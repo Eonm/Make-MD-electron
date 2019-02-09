@@ -6,7 +6,6 @@ before_script:
   - sudo apt-get install -y fakeroot
   - npm install
   - npm install -g electron
-  - npm install -g mocha
   - npm install -g electron-mocha
 script:
   - npm run test
@@ -21,4 +20,4 @@ deploy:
   on:
     repo: Eonm/Make-MD-electron
     all_branches: true
-tags: true
+    tags: true
