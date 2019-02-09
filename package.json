@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-packager . MakeMD --platform linux --arch x64 --out dist/",
-    "deb64": "electron-installer-debian --src dist/MakeMD-linux-x64/ --dest dist/installers/ --arch amd64 --config deb-config.json"
+    "deb64": "electron-installer-debian --src dist/MakeMD-linux-x64/ --dest dist/installers/ --arch amd64 --config deb-config.json",
+    "test": "electron-mocha ./tests/"
   },
   "icon": "./assets/icons/png/64x64.png",
   "repository": "https://github.com/electron/electron-quick-start",
@@ -24,6 +25,7 @@
     "electron": "^3.1.0",
     "electron-builder": "^20.38.4",
     "electron-installer-debian": "^1.1.0",
+    "electron-mocha": "^6.0.4",
     "electron-packager": "^13.0.1"
   },
   "dependencies": {
