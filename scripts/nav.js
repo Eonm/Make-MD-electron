@@ -61,7 +61,7 @@ function hideAllSectionsAndDeselectButtons () {
 }
 
 function displayAbout () {
-  document.querySelector('#about-modal').classList.add('is-shown')
+  // document.querySelector('#about-modal').classList.add('is-shown')
 }
 
 // Default to the view that was active the last time the app was open
@@ -72,5 +72,5 @@ if (sectionId) {
   if (section) section.click()
 } else {
   activateDefaultSection()
-  displayAbout()
+  // displayAbout()
 }
