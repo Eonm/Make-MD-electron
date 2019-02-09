@@ -78,14 +78,14 @@ endif
 endif
 endif
 
-update-csl: mkdir-bib
+update-csl: mkdir-csl
 ifneq ($(CSL_FILE),)
 	echo "updating csl file"
 	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
 	@mv /tmp/style.csl $(CSL_FILE)
 endif
 
-update-csl-force: mkdir-bib
+update-csl-force: mkdir-csl
 ifneq ($(CSL_FILE),)
 	echo $(CSL_STYLE)
 	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
@@ -152,7 +152,10 @@ mkdir-pdf:
 	@mkdir -p $(PDF_DIR)
 
 mkdir-bib:
-	@mkdir -p './bib'
+	@mkdir -p \`dirname $(BIBLIOGRAPHY)\`
+
+mkdir-csl:
+	@mkdir -p \`dirname $(CSL_FILE)\`
 
 mkdir-presentation:
 	@mkdir -p $(PRESENTATION_DIR)
