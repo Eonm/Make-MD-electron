@@ -1,5 +1,0 @@
-require('./scripts/set-path.js')
-require('./scripts/imports.js')
-require('./scripts/nav.js')
-require('./scripts/display-env-var.js')
-require('./scripts/display-allowed-build.js')
