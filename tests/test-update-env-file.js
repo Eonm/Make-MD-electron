@@ -13,9 +13,4 @@ describe('formatEnvData()', function() {
     let value = formatEnvData(input_data);
     expect(value).equal("VAR1=value1\nVAR2=value2");
   });
-  it('should trim empty variable', function() {
-   let input_data = [["VAR1", "value1"], ["VAR2", ""], ["VAR3", "value3"]];
-    let value = formatEnvData(input_data);
-    expect(value).equal("VAR1=value1\nVAR3=value3");
-  });
 });
