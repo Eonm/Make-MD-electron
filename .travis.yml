@@ -5,6 +5,7 @@ before_script:
   - sudo apt-get install -y fakeroot
   - npm install
   - npm install -g electron
+  - npm install -g mocha
   - npm install -g electron-mocha
 script:
   - npm run test
@@ -14,7 +15,7 @@ deploy:
   provider: releases
   api_key: $deploy_key
   file:
-  - ./dist/installers/makemd_0.1.0_amd64.deb
+  - ./dist/installers/makemd_0.1.1_amd64.deb
   skip_cleanup: true
   on:
     repo: Eonm/Make-MD-electron
