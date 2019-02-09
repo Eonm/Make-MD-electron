@@ -5,6 +5,7 @@ before_script:
   - sudo apt-get install -y fakeroot
   - npm install
   - npm install -g electron
+  - npm install -g electron-mocha
 script:
   - npm run test
   - npm run build
