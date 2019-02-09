@@ -1,6 +1,8 @@
 # Make-MD-electron
 
-![alt text](./MakeMD.png "Logo Title Text 1")
+[![Build Status](https://travis-ci.org/Eonm/Make-MD-electron.svg?branch=master)](https://travis-ci.org/Eonm/Make-MD-electron)
+
+![Image](./MakeMD.png)
 
 This project is in alpha.
 
