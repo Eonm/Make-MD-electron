@@ -152,10 +152,14 @@ mkdir-pdf:
 	@mkdir -p $(PDF_DIR)
 
 mkdir-bib:
+ifneq ($(BIBLIOGRAPHY),)
 	@mkdir -p \`dirname $(BIBLIOGRAPHY)\`
+endif
 
 mkdir-csl:
+ifneq ($(CSL_FILE),)
 	@mkdir -p \`dirname $(CSL_FILE)\`
+endif
 
 mkdir-presentation:
 	@mkdir -p $(PRESENTATION_DIR)
