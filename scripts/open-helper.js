@@ -66,9 +66,9 @@ function searchZotero() {
   shell.openExternal("https://www.zotero.org/groups/");
 }
 
-function getGithubApiKey() {
-  shell.openExternal("https://github.com/settings/tokens/new");
-}
+// function getGithubApiKey() {
+//   shell.openExternal("https://github.com/settings/tokens/new");
+// }
 
 function getZoteroApiKey() {
   shell.openExternal("https://www.zotero.org/settings/keys/new");
