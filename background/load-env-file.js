@@ -32,9 +32,13 @@ function parseRawEnvData (rawEnvData) { // return [["KEY", "value"], ["KEY1", "v
   })
 }
 
+function getParsedEnvData() {
+  return readLocalFile(envFile).then((envData) => parseRawEnvData(envData));
+}
+
 ipcMain.on('get-env-data', (event,data) => {
   console.log("loading env data")
-  readLocalFile(envFile).then((envData) => parseRawEnvData(envData) )
+  readLocalFile(envFile).then((envData) => parseRawEnvData(envData))
   .then((parsedEnvData) => {
     console.log("env data = "+ parsedEnvData)
     event.sender.send('env-data', parsedEnvData)
@@ -44,8 +48,8 @@ ipcMain.on('get-env-data', (event,data) => {
   })
 })
 
-
 module.exports = {
   parseRawEnvData: parseRawEnvData,
-  readLocalFile: readLocalFile
+  readLocalFile: readLocalFile,
+  getParsedEnvData: getParsedEnvData,
 }
