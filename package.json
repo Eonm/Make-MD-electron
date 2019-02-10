@@ -1,7 +1,7 @@
 {
   "name": "MakeMD",
-  "version": "0.1.1",
-  "description": "  Build academic materials with Make Markdown and CI",
+  "version": "0.1.2",
+  "description": "  Build academic materials with Make Markdown Pandoc and CI",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -32,6 +32,7 @@
     "child_process": "^1.0.2",
     "electron-settings": "^3.2.0",
     "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0",
     "path": "^0.12.7",
     "process": "^0.11.10",
     "remote": "^0.2.6"

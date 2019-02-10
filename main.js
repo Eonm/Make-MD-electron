@@ -57,3 +57,4 @@ require("./background/validate-data.js");
 require("./workers/prebuild-project.js");
 require("./workers/prebuild-pandoc-config.js");
 require("./workers/trigger-make.js");
+require("./services/travis.js");
