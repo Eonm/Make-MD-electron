@@ -17,3 +17,7 @@ Array.from(document.getElementsByClassName('update-env')).forEach((button) => {
 ipcRenderer.on('env-file-updated', (event) => {
   ipcRenderer.send('get-env-data');
 })
+
+module.exports = {
+  updateEnvFile: updateEnvFile,
+}
