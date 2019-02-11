@@ -15,7 +15,7 @@ deploy:
   provider: releases
   api_key: $deploy_key
   file:
-  - ./dist/installers/makemd_0.1.1_amd64.deb
+  - ./dist/installers/makemd_0.1.2_amd64.deb
   skip_cleanup: true
   on:
     repo: Eonm/Make-MD-electron
