@@ -32,14 +32,14 @@ function getTravisStatus(envData) {
     })
 }
 
-ipcMain.on('update-travis-file', (event) => {
+ipcMain.on('update-travis-file', (event, buildType) => {
   getParsedEnvData().then((parsedEnvData) =>  {
-    generateTravisConf(parsedEnvData)
+    generateTravisConf(parsedEnvData, buildType)
     copyMakefile()
   })
 })
 
-function generateTravisConf(envData) {
+function generateTravisConf(envData, buildType) {
   let envMap = new Map(envData)
 
   let outputDirs = [];
@@ -66,7 +66,7 @@ env:
  global:
 ${envFileValues.join("\n")}
 script:
-- make
+- make ${buildType}
 deploy:
  provider: releases
  api_key: $GITHUB_API_KEY

@@ -30,7 +30,6 @@ ipcRenderer.on('display-travis-status', (event, status) => {
 })
 
 document.getElementById('generate-travis-conf').addEventListener('click', (event) => {
-  console.log("travis")
   event.preventDefault();
-  ipcRenderer.send('update-travis-file');
+  ipcRenderer.send('update-travis-file', document.getElementById('travis-job').value);
 })
