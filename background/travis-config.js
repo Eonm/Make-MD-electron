@@ -34,6 +34,7 @@ before_install:
 - sudo apt install -y nodejs npm texlive-full pandoc pandoc-citeproc
 env:
  global:
+ - ZOTERO_API_KEY:$ZOTERO_API_KEY
 ${envFileValues.join("\n")}
 script:
 - make ${buildType}
