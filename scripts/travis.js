@@ -9,7 +9,6 @@ function travisStatusUndefined () {
 }
 
 document.getElementById('travis-build-status').addEventListener('click', (event) => {
-  console.log("travis")
   event.preventDefault();
   ipcRenderer.send('get-travis-status');
 })
@@ -31,5 +30,8 @@ ipcRenderer.on('display-travis-status', (event, status) => {
 
 document.getElementById('generate-travis-conf').addEventListener('click', (event) => {
   event.preventDefault();
-  ipcRenderer.send('update-travis-file', document.getElementById('travis-job').value);
+  buildType = document.getElementById('travis-job').value;
+  if (buildType) {
+    ipcRenderer.send('update-travis-file', buildType);
+  }
 })

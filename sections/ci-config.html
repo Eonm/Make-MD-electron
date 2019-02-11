@@ -29,10 +29,11 @@
               <div class="form-group">
               <label>Travis Job</label>
                 <select id="travis-job" class="form-control">
-                  <option value="pdf">Create PDF</option>
-                  <option value="presentation">Create Presentation</option>
-                  <option value="gitbook">Create Gitbook</option>
-                  <option value="build-all">Create all files above</option>
+                  <option value="">Please choose a build</option>
+                  <option disabled="true" id="travis_option_pdf" value="pdf">Create PDF</option>
+                  <option disabled="true" id="travis_option_presentation" value="presentation">Create Presentation</option>
+                  <option disabled="true" id="travis_option_gitbook" value="gitbook">Create Gitbook</option>
+                  <!-- <option value="build-all">Create all files above</option> -->
                 </select>
               </div>
               <div class="form-actions">
