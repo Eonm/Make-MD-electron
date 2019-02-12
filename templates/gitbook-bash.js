@@ -27,7 +27,11 @@ for file in $(ls \${GIT_BOOK_DIR}/*.md -A1) ; do
     h=$(head -n 1 $file)
     title=\${t:-$h}
 
+    if [ ! -z "$BIBLIOGRAPHY" ] && [ ! -z "$CSL_FILE" ];
+    then
     pandoc --filter pandoc-citeproc --bibliography $BIBLIOGRAPHY --csl $CSL_FILE -t html $file $GIT_BOOK_CONFIG -o $file
+    sed -e "s/<section/\\n<section/g" -i $file
+    fi
 
     mv $file \${GIT_BOOK_DIR}chapter-$counter
     echo "* ["$title"]("./chapter-$counter/$(basename $file)")" >> \${GIT_BOOK_DIR}SUMMARY.md

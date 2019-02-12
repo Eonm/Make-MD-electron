@@ -9,19 +9,22 @@ output-name:= $(shell grep "title: " $(PDF_CONFIG) | sed -e "s/title: //" | sed 
 build-all : pdf presentation gitbook
 
 update-bib: mkdir-bib
-ifneq ($(strip $(BIBLIOGRAPHY_SRC)),)
+ifneq ($(BIBLIOGRAPHY),)
+ifneq ($(BIBLIOGRAPHY_SRC),)
+ifneq ($(BIBLIOGRAPHY),)
 	cp "$(BIBLIOGRAPHY_SRC)" "$(BIBLIOGRAPHY)"
+endif
 else
 ifeq (,$(wildcard  $(BIBLIOGRAPHY)))
 ifneq ($(strip $(Z_USER_ID)),)
 ifneq ($(strip $(Z_COLLECTION)),)
-	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/collections/$(Z_COLLECTION)/items?format=biblatex > /tmp/bibliography.bib
+	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/collections/$(Z_COLLECTION)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
 else
 	echo "all user items"
-	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/items?format=biblatex > /tmp/bibliography.bib
+	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
@@ -29,15 +32,16 @@ endif
 else
 ifneq ($(strip $(Z_GROUP_ID)),)
 ifneq ($(strip $(Z_GROUP_COLLECTION)),)
-	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/collections/$(Z_GROUP_COLLECTION)/items?format=biblatex > /tmp/bibliography.bib
+	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/collections/$(Z_GROUP_COLLECTION)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
 else
-	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/items?format=biblatex > /tmp/bibliography.bib
+	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
+endif
 endif
 endif
 endif
@@ -45,18 +49,21 @@ endif
 endif
 
 update-bib-force: mkdir-bib
+ifneq ($(BIBLIOGRAPHY),)
 ifneq ($(strip $(BIBLIOGRAPHY_SRC)),)
+ifneq ($(BIBLIOGRAPHY),)
 	@cp "$(BIBLIOGRAPHY_SRC)" "$(BIBLIOGRAPHY)"
+endif
 else
 ifneq ($(strip $(Z_USER_ID)),)
 ifneq ($(strip $(Z_COLLECTION)),)
-	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/collections/$(Z_COLLECTION)/items?format=biblatex -o /tmp/bibliography.bib
+	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/collections/$(Z_COLLECTION)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
 else
 	@echo "all user items"
-	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/items?format=biblatex -o /tmp/bibliography.bib
+	@curl -s --header "Zotero-API-Key:$(Z_API_KEY)" https://api.zotero.org/users/$(Z_USER_ID)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
@@ -64,15 +71,16 @@ endif
 else
 ifneq ($(strip $(Z_GROUP_ID)),)
 ifneq ($(strip $(Z_GROUP_COLLECTION)),)
-	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/collections/$(Z_GROUP_COLLECTION)/items?format=biblatex -o /tmp/bibliography.bib
+	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/collections/$(Z_GROUP_COLLECTION)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
 else
-	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/items?format=biblatex -o /tmp/bibliography.bib
+	@curl https://api.zotero.org/groups/$(Z_GROUP_ID)/items?format=biblatex -o /tmp/bibliography.bib 2> /dev/null
 	grep -v 'An error occurred' /tmp/bibliography.bib
 	grep -v 'Collection not found' /tmp/bibliography.bib
 	@mv /tmp/bibliography.bib $(BIBLIOGRAPHY)
+endif
 endif
 endif
 endif
