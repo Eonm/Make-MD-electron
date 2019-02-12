@@ -13,9 +13,17 @@ function spawnMakeProcess(makeOption) {
       icon : './assets/icons/png/64x64.png'
       }).show();
 
-    make.stderr.on('error', (data) => {
+    make.stderr.on('data', (data) => {
+      let success = new Notification({
+        title : "MakeMD",
+        body: `Error : ${data.toString()}`,
+        icon : './assets/icons/png/64x64.png'
+      }).show();
+      return reject()
+    })
+
+    make.stdout.on('data', function(data) {
       console.log(data)
-      reject()
     })
 
     make.on('close', (code) => {

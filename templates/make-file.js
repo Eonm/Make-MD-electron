@@ -104,7 +104,7 @@ else
 	pandoc --toc -N -s $(MD_SRC)*.md $(PDF_CONFIG) -o $(PDF_DIR)$$output.pdf
 endif
 
-pdf-individualy: mkdir-pdf update-bib update-csl
+pdf-individually: mkdir-pdf update-bib update-csl
 	sed -e "s/^title:/#title:/" -i $(PDF_CONFIG);
 	sed -e "s/^author:/#author:/" -i $(PDF_CONFIG);
 ifneq ("$(wildcard $(BIBLIOGRAPHY))","")

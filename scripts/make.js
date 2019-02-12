@@ -8,11 +8,11 @@ makeButton.addEventListener('click', (e) => {
   e.preventDefault();
 
   let makeOption = document.getElementById('make_option').value;
-  let individualy= document.getElementById('individualy').checked;
+  let individually= document.getElementById('individually').checked;
 
-  if (individualy && makeOption != '') {
+  if (individually && makeOption != '') {
     displaySpinner();
-    ipcRenderer.send('make', makeOption+'-individualy');
+    ipcRenderer.send('make', makeOption+'-individually');
   } else if (makeOption != ''){
     displaySpinner();
     ipcRenderer.send('make', makeOption);
