@@ -1,6 +1,6 @@
 {
   "name": "MakeMD",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "  Build academic materials with Make Markdown Pandoc and CI",
   "main": "main.js",
   "scripts": {
