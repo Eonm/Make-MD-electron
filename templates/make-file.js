@@ -80,15 +80,17 @@ endif
 
 update-csl: mkdir-csl
 ifneq ($(CSL_FILE),)
+ifeq ("$(wildcard $(CSL_FILE))","")
 	echo "updating csl file"
-	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
+	@curl https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -o /tmp/style.csl 2> /dev/null
 	@mv /tmp/style.csl $(CSL_FILE)
+endif
 endif
 
 update-csl-force: mkdir-csl
 ifneq ($(CSL_FILE),)
 	echo $(CSL_STYLE)
-	@wget https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -O /tmp/style.csl
+	@curl https://raw.githubusercontent.com/citation-style-language/styles/master/$(CSL_STYLE).csl -o /tmp/style.csl 2> /dev/null
 	@mv /tmp/style.csl $(CSL_FILE)
 endif
 

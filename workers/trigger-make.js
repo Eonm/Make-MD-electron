@@ -8,15 +8,15 @@ function spawnMakeProcess(makeOption) {
   return new Promise(function(resolve, reject) {
     let make = exec(`make -f ${app.getPath("appData")}/MakeMD/Makefile ${makeOption} -C ${process.cwd()}`);
     let success = new Notification({
-      title : "MakeMD",
-      body: `creating : ${makeOption}`,
+      title : "MakeMD [Running]",
+      body: `running : ${makeOption}`,
       icon : './assets/icons/png/64x64.png'
       }).show();
 
     make.stderr.on('data', (data) => {
       let success = new Notification({
-        title : "MakeMD",
-        body: `Error : ${data.toString()}`,
+        title : "MakeMD [Error]",
+        body: `${data.toString()}`,
         icon : './assets/icons/png/64x64.png'
       }).show();
       return reject()
@@ -29,8 +29,8 @@ function spawnMakeProcess(makeOption) {
     make.on('close', (code) => {
       if (code == 0) {
         let success = new Notification({
-            title : "MakeMD",
-            body: `${makeOption} : created`,
+            title : "MakeMD [Success]",
+            body: `${makeOption}`,
             icon : './assets/icons/png/64x64.png'
         }).show();
         resolve()
