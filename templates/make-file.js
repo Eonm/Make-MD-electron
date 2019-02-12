@@ -131,7 +131,7 @@ endif
 
 download-revealjs-components: mkdir-presentation
 ifeq (,$(wildcard  presentation/master.tar.gz))
-	@curl -s -L https://github.com/hakimel/reveal.js/archive/master.tar.gz > /tmp/revealJS
+	@curl -s -L https://github.com/hakimel/reveal.js/archive/master.tar.gz -o /tmp/revealJS 2> /dev/null
 	@mv /tmp/revealJS $(PRESENTATION_DIR)master.tar.gz
 	@rm -f -r $(PRESENTATION_DIR)reveal.js
 	@tar -xzvf $(PRESENTATION_DIR)master.tar.gz -C $(PRESENTATION_DIR)
