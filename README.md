@@ -2,6 +2,8 @@
 
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Build Status](https://travis-ci.org/Eonm/Make-MD-electron.svg?branch=master)](https://travis-ci.org/Eonm/Make-MD-electron)
 
+![](MakeMD.png)
+
 This project is in alpha.
 
 Some features, such as travis config file generation, won't work.
