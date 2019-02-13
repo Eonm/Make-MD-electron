@@ -8,6 +8,8 @@ This project is in alpha.
 
 Some features, such as travis config file generation, won't work.
 
+[Documentation (fr)](https://github.com/Eonm/Make-MD-electron/wiki)
+
 ## Install
 
 Download the last .deb file [here](https://github.com/Eonm/Make-MD-electron/releases).
