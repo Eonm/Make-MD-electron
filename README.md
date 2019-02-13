@@ -41,7 +41,7 @@ Download the last .deb file [here](https://github.com/Eonm/Make-MD-electron/rele
 
 ## Build
 
-On debian based system
+On debian based systems
 
 ```sh
   # build the .deb package
