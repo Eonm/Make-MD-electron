@@ -6,7 +6,7 @@
 
 This project is in alpha.
 
-Some features, such as travis config file generation, won't work.
+Some features, such as travis config file generation, don't work.
 
 [Documentation (fr)](https://github.com/Eonm/Make-MD-electron/wiki)
 
