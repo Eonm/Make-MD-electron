@@ -19,7 +19,7 @@ Download the last .deb file [here](https://github.com/Eonm/Make-MD-electron/rele
   sudo apt-get install -f
 ```
 
-## Dependecies
+## Dependencies
 
 ```sh
   make
